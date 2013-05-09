@@ -1,0 +1,8 @@
+(defun find-largest-prime-factor (number)
+   (do ((i 2  (1+ i)))
+       ((>= i (/ number 2)))
+     (if(and(zerop (rem number i))
+            (not (evenp (/ number i)))
+            ((lambda (x)
+                 (loop for factor from 2 to (isqrt x) never (zerop (mod x factor)))) (/ number i)))
+        (return (/ number i)))))

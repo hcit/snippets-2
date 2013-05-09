@@ -1,0 +1,12 @@
+(defun aprob (over)                                                    
+           (let ((sum 0)                                                        
+                 (factors 0))                                                   
+             (do ((i 1 (1+ i)))                                                 
+                 (())                                                           
+               (setf sum (+ sum i))                                             
+               (setf factors 0)                                                 
+               (loop for x from 1 to (/ sum 2) do                                  
+                    (when(zerop(rem sum x))                                     
+                      (setf factors (1+ factors))))                             
+               (if(>= factors over)                                              
+                  (return-from aprob sum)))))
